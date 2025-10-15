@@ -2,25 +2,22 @@
 <html lang="ja">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reddit Web Game Starter</title>
+<title>Shogi 9×9 (with Drops)</title>
 <link rel="stylesheet" href="./style.css">
 <div class="wrap">
-  <h1>Comment Quest</h1>
-  <p>このスレのコメントに <code>PICK</code> / <code>DROP</code> / <code>SCAN</code> を含めて投稿するとスコア化されます。</p>
-  <div class="controls">
-    <label>Reddit投稿URL（パーマリンク）</label>
-    <input id="url" placeholder="https://www.reddit.com/r/xxxxx/comments/abcdef/title/" />
-    <button id="load">集計</button>
+  <h1>将棋 9×9（持ち駒あり・簡易）</h1>
+  <p class="hint">ローカル対局デモ。チェック判定なし。成りは敵陣（奥3段）で選択。打ち歩詰めは未実装。</p>
+  <div class="hud">
+    <div id="turn" class="turn"></div>
+    <button id="reset">初期化</button>
   </div>
-  <div id="meta" class="meta"></div>
-  <ol id="board" class="board"></ol>
-  <details class="rules"><summary>ルール</summary>
-    <ul>
-      <li>PICK +3</li>
-      <li>DROP +2</li>
-      <li>SCAN +1</li>
-      <li>同一ユーザーの連投は30秒以内は無効（簡易アンチスパム）</li>
-    </ul>
-  </details>
+  <div class="hands">
+    <div class="hand" id="handG"><div class="label">△ 後手の持ち駒</div><div class="slots" id="slotsG"></div></div>
+  </div>
+  <div id="board" class="board"></div>
+  <div class="hands">
+    <div class="hand" id="handS"><div class="label">▲ 先手の持ち駒</div><div class="slots" id="slotsS"></div></div>
+  </div>
+  <div id="log" class="log"></div>
 </div>
-<script type="module" src="./main.js"></script>
+<script type="module" src="./shogi9.js"></script>
